@@ -1,0 +1,82 @@
+:root{
+    --card-blue:#6EC1E4;
+    --card-blue-dark:#042d3f;
+
+    --card-yellow:#F2C230;
+    --card-yellow-dark:#D9A61F;
+
+    --card-text:#0808086e;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width:500px;
+    
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    
+    
+
+}
+.side-text{
+    color: whitesmoke;
+    width: 80px;
+    background-color: var(--card-blue-dark);
+    text-align: center;
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    font-family: Helvetica, sans-serif;
+    font-style: bold;
+    border-radius:0 10px 10px 0;
+
+}
+.inner-text{
+    background-color: var(--card-blue);
+    padding: 20px;
+    margin-left: 3px;
+    border-radius:0 10px 10px 0;
+    ;
+
+}
+.card-scene{
+    perspective: 1000px;
+}
+.card-flip{
+    position: relative;
+    width:500px;
+    height:300px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+
+}
+.card-flip:active{
+    transform: rotateY(180deg);
+}
+.card-front{
+    background: transparent;
+}
+.card-back{
+    
+    transform: rotateY(180deg);
+    
+}
+.card-back .inner-text{
+    background-color: var(--card-yellow);
+}
+.card-back .side-text{
+    background-color: var(--card-yellow-dark);
+    color: whitesmoke;
+}
+
+.card-face{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    backface-visibility: hidden;
+}
